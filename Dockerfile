@@ -4,14 +4,14 @@ MAINTAINER Dave Baker <dbaker@redhat.com>
 # Quick-start:
 #   oc new-project centos-nmap
 #   oc new-app . --name=nmap
-#   oc start-build nmap --from-file=Dockerfile
+#   oc start-build nmap --from-file=Dockerfile --follow
 #
 # Base on centos image (this is pulled from docker.hub)
 # Update, install epel and nmap, create non-root user
 # Sleep (almost) indefinitely so the container starts up and waits for you
 # to connect manually:
 #   oc get pods         # look for the pod that's Running ...
-#   oc rsh $( oc get pods | awk '$3=="Running" {print $1}' ) bash
+#   oc rsh $( oc get pods | awk '$1!~/-build/ && $3=="Running" {print $1}' ) bash
 # 
 
 RUN yum -y update && \
