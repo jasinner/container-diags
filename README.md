@@ -6,7 +6,7 @@
 * oc new-project foo
 * oc new-app https://github.com/dbaker-rh/container-diags
 * oc logs -f bc/container-diags # this waits for build to finish
-* oc rsh $( oc get pods | awk '$1!~/-build/ && $3=="Running" {print $1}' ) bash
+* oc rsh $( oc get pods | awk '$1!~/-build/ && $3=="Running" {print $1; exit}' ) bash
 *
 
 ## From a local copy of the repo
@@ -19,7 +19,7 @@ Note that by default "oc new-app" will detect the name of the remote repo and us
 * oc new-project foo
 * oc new-app .
 * oc logs -f bc/container-diags
-* oc rsh $( oc get pods | awk '$1!~/-build/ && $3=="Running" {print $1}' ) bash
+* oc rsh $( oc get pods | awk '$1!~/-build/ && $3=="Running" {print $1; exit}' ) bash
 *
 
 
@@ -34,7 +34,7 @@ Note we have no .git/ directory at all to confuse things.
 * oc new-project foo
 * oc new-app . --name=bar
 * oc start-build bar --from-file=Dockerfile --follow
-* oc rsh $( oc get pods | awk '$1!~/-build/ && $3=="Running" {print $1}' ) bash
+* oc rsh $( oc get pods | awk '$1!~/-build/ && $3=="Running" {print $1; exit}' ) bash
 *
 
 
