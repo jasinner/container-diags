@@ -15,7 +15,6 @@ Note that by default "oc new-app" will detect the name of the remote repo and us
 
 * git clone https://github.com/dbaker-rh/container-diags.git && cd ./container-diags
 * ... edit, as needed, ...
-
 * oc login ...
 * oc new-project foo
 * oc new-app .
@@ -31,7 +30,6 @@ Note we have no .git/ directory at all to confuse things.
 * mkdir /tmp/whatever && cd /tmp/whatever
 * wget https://raw.githubusercontent.com/dbaker-rh/container-diags/master/Dockerfile
 * ... edit, as needed, ...
-
 * oc login ...
 * oc new-project foo
 * oc new-app . --name=bar
