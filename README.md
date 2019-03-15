@@ -1,6 +1,8 @@
 # container-diags
 
 ## Directly from this github repo
+
+* oc login ...
 * oc new-project foo
 * oc new-app https://github.com/dbaker-rh/container-diags
 * oc logs -f bc/container-diags # wait for build to finish
@@ -11,6 +13,7 @@
 
 Note that without the "--name=bar" this may query the .git/ directory to default to the repo name
 
+* oc login ...
 * oc new-project foo
 * oc new-app . --name=bar
 * oc start-build bar --from-file=Dockerfile --follow
