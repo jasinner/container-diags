@@ -15,7 +15,7 @@ MAINTAINER Dave Baker <dbaker@redhat.com>
 # 
 
 RUN yum -y update && \
-    yum install -y epel-release && yum install -y nmap
+    yum install -y epel-release && yum install -y nmap nmap-ncat socat telnet openssh-clients
 
 RUN useradd user
 USER user
