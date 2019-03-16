@@ -9,6 +9,13 @@
 * oc rsh $( oc get pods | awk '$1!~/-build/ && $3=="Running" {print $1; exit}' ) bash
 *
 
+Rebuild after a repo update
+
+* oc start-build container-diags --follow
+* oc rsh $( oc get pods | awk '$1!~/-build/ && $3=="Running" {print $1; exit}' ) bash
+*
+
+
 ## From a local copy of the repo
 
 Note that by default "oc new-app" will detect the name of the remote repo and use it.  Override with "--name=bar", if desired.
