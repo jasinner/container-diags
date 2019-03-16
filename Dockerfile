@@ -11,7 +11,7 @@ MAINTAINER Dave Baker <dbaker@redhat.com>
 # Sleep (almost) indefinitely so the container starts up and waits for you
 # to connect manually:
 #   oc get pods         # look for the pod that's Running ...
-#   oc rsh $( oc get pods | awk '$1!~/-build/ && $3=="Running" {print $1}' ) bash
+#   oc rsh $( oc get pods | awk '$1!~/-build/ && $3=="Running" {print $1; exit}' ) bash
 # 
 
 RUN yum -y update && \
