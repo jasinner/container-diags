@@ -14,8 +14,15 @@ MAINTAINER Dave Baker <dbaker@redhat.com>
 #   oc rsh $( oc get pods | awk '$1!~/-build/ && $3=="Running" {print $1; exit}' ) bash
 # 
 
-RUN yum -y update && \
-    yum install -y epel-release && yum install -y nmap nmap-ncat socat telnet openssh-clients iproute
+RUN set -x && \
+    ( if [ -e /etc/os-release ]; then cat /etc/os-release; fi ) && \
+    yum -y update && \
+    yum install -y epel-release && \
+    yum install -y net-tools iproute && \
+    yum install -y nmap nmap-ncat socat telnet openssh-clients && \
+    yum clean all && \
+    rm -rf /var/cache/yum
+
 
 RUN useradd user
 USER user
