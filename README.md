@@ -35,7 +35,7 @@ Note that by default "oc new-app" will detect the name of the remote repo and us
 This will not work if you have 2-factor auth setup on Github. In that case, create a [Personal Access Token with no scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)
 You'll also need to add your Personal Access Token to the OpenShift project:
 
-* oc secret new-basicauth user-at-github --username=dbacker-rh --prompt
+* oc secret new-basicauth user-at-github --username=dbaker-rh --prompt
 Password:
 secret/user-at-github
 
