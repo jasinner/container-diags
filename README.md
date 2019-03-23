@@ -1,5 +1,8 @@
 # container-diags
 
+A simple container to launch and run diagnostics directly from inside an OpenShift compute node.
+
+
 ## Directly from this github repo
 
 * oc login ...
