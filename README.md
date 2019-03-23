@@ -36,8 +36,22 @@ Now, open a shell in the container we created.
 * oc rsh $( oc get pods | awk '$1!~/-build/ && $3=="Running" {print $1; exit}' ) bash
 
 
+### Additional notes on using GitHub repos
+
 If you want to make more elaborate edits, or preserve the edits you make, then fork the repo on GitHub and push your edits there.
 
+Private repos, or read-write operations over https will not work if you have 2FA enabled.
+
+In that case, create a [Personal Access Token with no scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)
+You'll also need to add your Personal Access Token to the OpenShift project:
+
+* oc secret new-basicauth user-at-github --username=dbaker-rh --prompt
+Password:
+secret/user-at-github
+
+* oc secrets link builder user-at-github
+* oc annotate secret/user-at-github \
+    'build.openshift.io/source-secret-match-uri-1=https://github.com/dbaker-rh/container-diags.git'
 
 
 ## From a local directory
