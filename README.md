@@ -23,7 +23,7 @@ Note that by default "oc new-app" will detect the name of the remote repo and us
 * git clone https://github.com/dbaker-rh/container-diags.git && cd ./container-diags
 * oc login ...
 * oc new-project foo
-* oc new-app .
+* oc new-app .   # This builds based on the repo you cloned, not including any edits to the local directory
 * oc logs -f bc/container-diags   # This waits for the build to finish
 
 If you want to make local edits, such as adding extra packages, do so now.  This step uploads a copy of the local Dockerfile and rebuilds.
