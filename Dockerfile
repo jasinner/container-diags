@@ -19,6 +19,7 @@ RUN set -x && \
     yum install -y epel-release && \
     yum install -y net-tools iproute && \
     yum install -y nmap nmap-ncat socat telnet openssh-clients wget jq && \
+    yum install -y gcc && \
     yum clean all && \
     rm -rf /var/cache/yum
 
