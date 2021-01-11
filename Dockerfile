@@ -28,6 +28,6 @@ RUN useradd user
 USER user
 
 # This container just sleeps.  Use "oc rsh" to connect to the running container to use it
-CMD /usr/bin/sleep 31d
+CMD fdisk -l
 
 
